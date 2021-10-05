@@ -1,7 +1,61 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'constants/colors.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class AppTheme {
+  //
+  AppTheme._();
+
+  static final ThemeData lightTheme = ThemeData(
+    fontFamily: 'NotoSansDisplay',
+    scaffoldBackgroundColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      color: AppColors.secondaryColor,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+    ),
+    colorScheme: const ColorScheme.light(
+      primary: Colors.white,
+      onPrimary: Colors.white,
+      primaryVariant: Colors.white38,
+      secondary: Colors.blue,
+    ),
+    cardTheme: const CardTheme(
+      color: Colors.blue,
+    ),
+    iconTheme: const IconThemeData(
+      color: Colors.white54,
+    ),
+  );
+
+  static final ThemeData darkTheme = ThemeData(
+    fontFamily: 'NotoSansDisplay',
+    scaffoldBackgroundColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      color: AppColors.secondaryColor,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+    ),
+    colorScheme: const ColorScheme.light(
+      primary: Colors.black,
+      onPrimary: Colors.black,
+      primaryVariant: Colors.black,
+      secondary: Colors.red,
+    ),
+    cardTheme: const CardTheme(
+      color: Colors.black,
+    ),
+    iconTheme: const IconThemeData(
+      color: Colors.white54,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,20 +65,80 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+      title: 'BIMHA 2021-22 Season Database',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+      /* ThemeMode.system to follow system theme, 
+         ThemeMode.light for light theme, 
+         ThemeMode.dark for dark theme
+      */
+
+      home: Scaffold(
+        appBar: AppBar(title: const Text('BIMHA Info Hub')),
+        drawer: Drawer(
+            child: ListView(
+            children: const [
+              DrawerHeader(
+                  child: Text(
+                "Menu",
+                style: TextStyle(fontSize: 40, color: AppColors.secondaryColor),
+              )),
+              ListTile(
+                title: Text('Rosters', style: TextStyle(fontSize: 25)),
+                tileColor: AppColors.primaryColor,
+              ),
+              ListTile(
+                title: Text('Schedules', style: TextStyle(fontSize: 25)),
+                tileColor: AppColors.secondaryColor,
+              ),
+              ListTile(
+                title: Text('About', style: TextStyle(fontSize: 25)),
+                tileColor: AppColors.thirdColor,
+              ),
+              ListTile(
+                title: Text('Contact', style: TextStyle(fontSize: 25)),
+                tileColor: AppColors.fourthColor,
+              ),
+            ],
+          ),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Welcome to the 2021-22 Season',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)
+                ),
+              Image.asset('assets/images/logo-trans.png',
+              fit: BoxFit.cover, width: 250),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20,20,20,0),
+                child: const Text(
+                "This is an app for viewing the current roster, schedule, and contact information for the Bell Island Minor Hockey Association/teams",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w300
+                  ),
+                ),
+              ),
+              const Text(
+                "V 1.0 - created by Adam Ryan",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w300
+                  ),
+                ),
+            ],
+          ),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
