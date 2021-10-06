@@ -1,9 +1,21 @@
+// ignore_for_file: file_names, equal_keys_in_map
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants/colors.dart';
+import 'widgets/drawer.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:minorhockey_scheduler/routes/routes.dart';
+import 'package:minorhockey_scheduler/subpages/about/main.dart';
+import 'package:minorhockey_scheduler/subpages/contact/main.dart';
+import 'package:minorhockey_scheduler/subpages/timbits/main.dart';
+import 'package:minorhockey_scheduler/subpages/u9/main.dart';
+import 'package:minorhockey_scheduler/subpages/u11/main.dart';
+import 'package:minorhockey_scheduler/subpages/u13/main.dart';
+import 'package:minorhockey_scheduler/subpages/u15/main.dart';
+import 'package:minorhockey_scheduler/subpages/u18/main.dart';
 
-void main() {
+Future main() async {
+  dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
@@ -30,7 +42,7 @@ class AppTheme {
       color: Colors.blue,
     ),
     iconTheme: const IconThemeData(
-      color: Colors.white54,
+      color: AppColors.fifthColor,
     ),
   );
 
@@ -53,14 +65,14 @@ class AppTheme {
       color: Colors.black,
     ),
     iconTheme: const IconThemeData(
-      color: Colors.white54,
+      color: AppColors.fifthColor,
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
+  static const String routeName = '/home';
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -76,154 +88,51 @@ class MyApp extends StatelessWidget {
 
       home: Scaffold(
         appBar: AppBar(title: const Text('BIMHA Info Hub')),
-        drawer: Drawer(
-            child: ListView(
-            children: const [
-              DrawerHeader(
-                  child: Text(
-                "Menu",
-                style: TextStyle(fontSize: 40, color: AppColors.secondaryColor),
-              )),
-              ListTile(
-                title: Text('Rosters', style: TextStyle(fontSize: 25)),
-                tileColor: AppColors.primaryColor,
-              ),
-              ListTile(
-                title: Text('Schedules', style: TextStyle(fontSize: 25)),
-                tileColor: AppColors.secondaryColor,
-              ),
-              ListTile(
-                title: Text('About', style: TextStyle(fontSize: 25)),
-                tileColor: AppColors.thirdColor,
-              ),
-              ListTile(
-                title: Text('Contact', style: TextStyle(fontSize: 25)),
-                tileColor: AppColors.fourthColor,
-              ),
-            ],
-          ),
-        ),
+        drawer: const AppDrawer(),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text('Welcome to the 2021-22 Season',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)
-                ),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
               Image.asset('assets/images/logo-trans.png',
-              fit: BoxFit.cover, width: 250),
+                  fit: BoxFit.cover, width: 250),
               Container(
-                padding: const EdgeInsets.fromLTRB(20,20,20,0),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: const Text(
-                "This is an app for viewing the current roster, schedule, and contact information for the Bell Island Minor Hockey Association/teams",
+                  "This is an app for viewing the current roster, schedule, and contact information for the Bell Island Minor Hockey Association/teams",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w300
-                  ),
+                      color: Colors.black,
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w300),
                 ),
               ),
               const Text(
                 "V 1.0 - created by Adam Ryan",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w300
-                  ),
-                ),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.w300),
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      routes:  {
+        Routes.contacts: (context) => const ContactsPage(),
+        Routes.about: (context) => const AboutPage(),
+        Routes.timbits: (context) => const TimbitsPage(),
+        Routes.u9: (context) => const U9Page(),
+        Routes.u11: (context) => const U11Page(),
+        Routes.u13: (context) => const U13Page(),
+        Routes.u15: (context) => const U15Page(),
+        Routes.u18: (context) => const U18Page(),
+        Routes.home: (context) => const MyApp(),
+      },
     );
   }
 }
