@@ -1,12 +1,25 @@
 class ScheduleModel {
-  String name = "";
-  String dob = "";
-  String? jersey;
-  String status = "";
+  String date = "";
+  String location = "";
+  String time = "";
+  String opponent = "";
+  String title = "";
+
+  ScheduleModel(
+    {
+      required this.title,
+      required this.date,
+      required this.time,
+      required this.location,
+      required this.opponent
+    }
+  );
 
   ScheduleModel.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        dob = json['dob'],
-        jersey = json['jersey'],
-        status = json['status'] ?? "N/A";
+      : date = json['date'] as String,
+        location = json['location'] as String,
+        time = json['time'] as String,
+        opponent = json['opponent'] as String,
+        title = json['title'] as String;
+
 }
