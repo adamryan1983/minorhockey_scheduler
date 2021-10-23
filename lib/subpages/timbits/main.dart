@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:minorhockey_scheduler/widgets/roster.dart';
+import 'package:minorhockey_scheduler/widgets/schedule.dart';
+import 'package:flutter/cupertino.dart';
 
 class TimbitsPage extends StatefulWidget {
   const TimbitsPage({Key? key}) : super(key: key);
-    static const String routeName = '/timbits';
+  static const String routeName = '/timbits';
+  // static const String name = 'Timbits';
+  // static const String division = 'timbits';
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _TimbitsPageState createState() => _TimbitsPageState();
 }
 
-class _HomeScreenState extends State<TimbitsPage>
-    with SingleTickerProviderStateMixin {
+class _TimbitsPageState extends State<TimbitsPage>
+    with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 
+  late TabController controller;
+
   @override
   void initState() {
+    controller = TabController(length: 2, vsync: this, initialIndex: 0);
     super.initState();
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TabController controller = TabController(length: 2, vsync: this);
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -51,30 +64,10 @@ class _HomeScreenState extends State<TimbitsPage>
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          RosterList(),
-          ScheduleList()
+          Roster(name: 'Timbits', division: 'timbits'),
+          Schedule(name: 'Timbits', division: 'timbits')
         ],
       ),
     );
-  }
-}
-
-class RosterList extends StatelessWidget {
-  const RosterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('Timbits Page'));
-  }
-}
-
-class ScheduleList extends StatelessWidget {
-  const ScheduleList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('Timbits Page'));
   }
 }

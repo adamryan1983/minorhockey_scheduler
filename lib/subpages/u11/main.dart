@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
+import 'package:minorhockey_scheduler/widgets/roster.dart';
+import 'package:minorhockey_scheduler/widgets/schedule.dart';
 
 class U11Page extends StatefulWidget {
   const U11Page({Key? key}) : super(key: key);
-    static const String routeName = '/u11';
+  static const String routeName = '/u11';
+  // static const String name = 'U11';
+  // static const String division = 'u11';
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _U11PageState createState() => _U11PageState();
 }
 
-class _HomeScreenState extends State<U11Page>
-    with SingleTickerProviderStateMixin {
+class _U11PageState extends State<U11Page>
+    with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 
+      late TabController controller;
+
   @override
   void initState() {
+    controller = TabController(length: 2, vsync: this, initialIndex: 0);
     super.initState();
+  }
+    @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    TabController controller = TabController(length: 2, vsync: this);
+
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -50,30 +63,10 @@ class _HomeScreenState extends State<U11Page>
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          RosterList(),
-          ScheduleList()
+          Roster(name: 'Under 11', division: 'u11'),
+          Schedule(name: 'Under 11', division: 'u11')
         ],
       ),
     );
-  }
-}
-
-class RosterList extends StatelessWidget {
-  const RosterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('U11 Roster Page'));
-  }
-}
-
-class ScheduleList extends StatelessWidget {
-  const ScheduleList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('U11 Schedule Page'));
   }
 }

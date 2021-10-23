@@ -7,6 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:minorhockey_scheduler/routes/routes.dart';
 import 'package:minorhockey_scheduler/subpages/about/main.dart';
 import 'package:minorhockey_scheduler/subpages/contact/main.dart';
+import 'package:minorhockey_scheduler/subpages/covid/main.dart';
 import 'package:minorhockey_scheduler/subpages/timbits/main.dart';
 import 'package:minorhockey_scheduler/subpages/u9/main.dart';
 import 'package:minorhockey_scheduler/subpages/u11/main.dart';
@@ -125,6 +126,7 @@ class MyApp extends StatelessWidget {
       routes:  {
         Routes.contacts: (context) => const ContactsPage(),
         Routes.about: (context) => const AboutPage(),
+        Routes.covid: (context) => const CovidPage(),
         Routes.timbits: (context) => const TimbitsPage(),
         Routes.u9: (context) => const U9Page(),
         Routes.u11: (context) => const U11Page(),

@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
+import 'package:minorhockey_scheduler/widgets/roster.dart';
+import 'package:minorhockey_scheduler/widgets/schedule.dart';
 
 class U9Page extends StatefulWidget {
   const U9Page({Key? key}) : super(key: key);
-    static const String routeName = '/u9';
+  static const String routeName = '/u9';
+  // static const String name = 'U9';
+  // static const String division = 'u9';
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _U9PageState createState() => _U9PageState();
 }
 
-class _HomeScreenState extends State<U9Page>
-    with SingleTickerProviderStateMixin {
+class _U9PageState extends State<U9Page>
+    with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 
+      late TabController controller;
+
   @override
   void initState() {
+    controller = TabController(length: 2, vsync: this, initialIndex: 0);
     super.initState();
+  }
+    @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    TabController controller = TabController(length: 2, vsync: this);
+
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -50,30 +63,10 @@ class _HomeScreenState extends State<U9Page>
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          RosterList(),
-          ScheduleList()
+          Roster(name: 'Under 9', division: 'u9'),
+          Schedule(name: 'Under 9', division: 'u9')
         ],
       ),
     );
-  }
-}
-
-class RosterList extends StatelessWidget {
-  const RosterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('Under 9 Roster'));
-  }
-}
-
-class ScheduleList extends StatelessWidget {
-  const ScheduleList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('Under 9 Schedule'));
   }
 }

@@ -50,6 +50,11 @@ class AppDrawer extends StatelessWidget {
               text: 'About',
               onTap: () =>
                   Navigator.pushReplacementNamed(context, Routes.about)),
+          _createDrawerItem(
+              icon: Icons.health_and_safety,
+              text: 'Covid Policy',
+              onTap: () =>
+                  Navigator.pushReplacementNamed(context, Routes.covid)),
           const Divider(),
           _createDrawerItem(
               icon: Icons.home,
@@ -63,14 +68,15 @@ class AppDrawer extends StatelessWidget {
 }
 
   Widget _createHeader() {
-    return DrawerHeader(
+    return SizedBox(
+      height: 150,
+      child:DrawerHeader(
         margin: const EdgeInsets.fromLTRB(4, 50, 4, 10),
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.scaleDown,
-                image: AssetImage("assets/images/logo-trans.png"))),
-        child: Stack());
-  }
+                image: AssetImage("assets/images/logo-trans.png",))),
+        child: Stack()));}
 
   Widget _createDrawerItem(
       {IconData? icon, String? text, GestureTapCallback? onTap}) {

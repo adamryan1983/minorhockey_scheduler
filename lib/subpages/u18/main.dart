@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
+import 'package:minorhockey_scheduler/widgets/roster.dart';
+import 'package:minorhockey_scheduler/widgets/schedule.dart';
 
 class U18Page extends StatefulWidget {
   const U18Page({Key? key}) : super(key: key);
@@ -9,7 +11,7 @@ class U18Page extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<U18Page>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 
@@ -50,30 +52,10 @@ class _HomeScreenState extends State<U18Page>
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          RosterList(),
-          ScheduleList()
+        Roster(name: 'Under 15', division: 'u15'),
+        Schedule(name: 'Under 15', division: 'u15')
         ],
       ),
     );
-  }
-}
-
-class RosterList extends StatelessWidget {
-  const RosterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('U18 Roster Page'));
-  }
-}
-
-class ScheduleList extends StatelessWidget {
-  const ScheduleList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8), child: const Text('U18 Schedule Page'));
   }
 }
