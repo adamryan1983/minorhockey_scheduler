@@ -62,7 +62,7 @@ class _U11PageState extends State<U11Page>
       drawer: const AppDrawer(),
       body: TabBarView(
         controller: controller,
-        children: <Widget>[
+        children: const <Widget>[
           Roster(name: 'Under 11', division: 'u11'),
           Schedule(name: 'Under 11', division: 'u11')
         ],

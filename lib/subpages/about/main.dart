@@ -22,61 +22,128 @@ class ContactList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text('Bell Island Minor Hockey Association',
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column (
+          children: const [
+          Text('Bell Island Minor Hockey Association',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-          const Text('Board of Directors',textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-          const Text('President: John Smith',textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),  
-          const Text('Vice President: John Smith'),
-          const Text('Second Vice President: John Smith'),
-          const Text('Secretary: John Smith'),
-          const Text('Treasurer: John Smith'),
-          Row(
-           children: const [
-             Column(
-               children: [
-                 const Text('President: John Smith'),
-                 const Text('Vice President: John Smith'),
-                 const Text('Secretary: John Smith'),
-                 const Text('Treasurer: John Smith'),
-               ],
-             ),
-            Text('IHL Rep: '),
-            Text('John Doe')]),
-          const Text('John Smith'),
-          const Text('John Smith'),
-          const Text('John Smith'),
-          const Text('John Smith'),
-          const Text('John Smith'),
-          const Text('John Smith'),
-          Container(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-            child: const Text(
-              "This is an app for viewing the current roster, schedule, and contact information for the Bell Island Minor Hockey Association/teams",
+          Text('Board of Directors',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w300),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              children: const [
+                Text('President',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                Text('Gary McLaughlin',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              ],
             ),
-          ),
-          const Text(
-            "V 1.0 - created by Adam Ryan",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 17.0,
-                fontWeight: FontWeight.w300),
-          ),
-        ],
-      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: const [
+                    Text('Vice President:',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w600)),
+                    Text('Jeanette Ricketts',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Text('2nd Vice President:',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w600)),
+                    Text('Jennifer Power',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
+                  ],
+                ),
+              ],
+            ),
+            Column(
+              children: const [
+                Text('Secretary:',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                Text('Allison Normore',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              ],
+            ),
+            Column(
+              children: const [
+                Text('Treasurer:',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                Text('Keshia Ryan',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              ],
+            ),
+            Column(
+              children: const [
+                Text('IHL Rep:',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                Text('Karen B. Smith',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              ],
+            ),
+            Column(
+              children: const [
+                Text('Communications Director:',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                Text('Amanda Kavanagh',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              ],
+            ),
+            Column(
+              children: const [
+                Text('Technical Director:',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                Text('Adam Ryan',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

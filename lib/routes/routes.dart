@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:minorhockey_scheduler/subpages/about/main.dart';
 import 'package:minorhockey_scheduler/subpages/contact/main.dart';
+import 'package:minorhockey_scheduler/subpages/covid/main.dart';
 import 'package:minorhockey_scheduler/subpages/timbits/main.dart';
 import 'package:minorhockey_scheduler/subpages/u9/main.dart';
 import 'package:minorhockey_scheduler/subpages/u11/main.dart';
@@ -12,6 +13,7 @@ import 'package:minorhockey_scheduler/main.dart';
 class Routes {
   static const String contacts = ContactsPage.routeName;
   static const String about = AboutPage.routeName;
+  static const String covid = CovidPage.routeName;
   static const String timbits = TimbitsPage.routeName;
   static const String u9 = U9Page.routeName;
   static const String u11 = U11Page.routeName;
