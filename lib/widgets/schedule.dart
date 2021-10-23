@@ -88,7 +88,7 @@ class _ScheduleState extends State<Schedule> {
       Container(
           padding: const EdgeInsets.all(20.0),
           child: Text(
-            "Roster for $name",
+            "Schedule for $name",
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 22,

@@ -111,7 +111,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('Karen B. Smith',
+                Text('Dave Banko',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
