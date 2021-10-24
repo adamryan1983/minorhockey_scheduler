@@ -5,26 +5,26 @@ import 'package:minorhockey_scheduler/models/schedule_model.dart';
 import 'package:minorhockey_scheduler/services/roster_http.dart';
 
 class Schedule extends StatefulWidget {
-  const Schedule({Key? key, required this.name, required this.division})
-      : super(key: key);
   final String division;
   final String name;
+  const Schedule({Key? key, required this.name, required this.division})
+      : super(key: key);
 
   @override
-  _ScheduleState createState() => _ScheduleState();
+    // ignore: no_logic_in_create_state
+  _ScheduleState createState() => _ScheduleState(division,name);
 }
 
 class _ScheduleState extends State<Schedule> {
+  late String name;
+  late String division;
+  _ScheduleState(this.division,this.name);
   late Future<List<ScheduleModel>> _futureGames;
-
-  String? get division => 'timbits';
-
-  get name => 'Timbits';
 
   @override
   void initState() {
     super.initState();
-    _futureGames = RosterRepository().getGames('timbits');
+    _futureGames = RosterRepository().getGames(division);
   }
 
   @override

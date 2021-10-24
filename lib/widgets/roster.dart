@@ -11,7 +11,7 @@ class Roster extends StatefulWidget {
       : super(key: key);
 
   @override
-  // ignore: no_logic_in_create_state
+    // ignore: no_logic_in_create_state
   _RosterState createState() => _RosterState(division,name);
 }
 
@@ -19,12 +19,7 @@ class _RosterState extends State<Roster> {
     late String name;
     late String division;
     _RosterState(this.division,this.name);
-//  _RecordPageState(this. recordObject); 
   late Future<List<RosterModel>> _futurePlayers;
-
-  // String? get division => 'timbits';
-
-  // get name => 'Timbits';
 
   @override
   void initState() {

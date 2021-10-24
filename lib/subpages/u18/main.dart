@@ -52,8 +52,8 @@ class _HomeScreenState extends State<U18Page>
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-        Roster(name: 'Under 15', division: 'u15'),
-        Schedule(name: 'Under 15', division: 'u15')
+        Roster(name: 'Under 18', division: 'u18'),
+        Schedule(name: 'Under 18', division: 'u18')
         ],
       ),
     );
