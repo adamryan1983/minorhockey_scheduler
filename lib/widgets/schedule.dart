@@ -41,15 +41,17 @@ class _ScheduleState extends State<Schedule> {
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.date ?? '',
-            style: const TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 10),
+            textAlign: TextAlign.center,
           ),
         ),
         Container(
-          width: 45,
+          width: 50,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.time ?? '',
             style: const TextStyle(fontSize: 12),
+            textAlign: TextAlign.center,
           ),
         ),
         Container(
@@ -58,22 +60,25 @@ class _ScheduleState extends State<Schedule> {
           child: Text(
             docs.location ?? '',
             style: const TextStyle(fontSize: 12),
+            textAlign: TextAlign.center,
           ),
         ),
         Container(
-          width: 75,
+          width: 85,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.opponent ?? '',
+            textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
         ),
         Container(
-          width: 70,
+          width: 80,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.title ?? '',
+            textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
@@ -89,6 +94,7 @@ class _ScheduleState extends State<Schedule> {
           padding: const EdgeInsets.all(20.0),
           child: Text(
             "Schedule for $name",
+            textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 22,
@@ -106,6 +112,7 @@ class _ScheduleState extends State<Schedule> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Date",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13),
                 ),
               ),
@@ -114,6 +121,7 @@ class _ScheduleState extends State<Schedule> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Time",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13),
                 ),
               ),
@@ -122,6 +130,7 @@ class _ScheduleState extends State<Schedule> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Location",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13),
                 ),
               ),
@@ -130,6 +139,7 @@ class _ScheduleState extends State<Schedule> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Opponent",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13),
                 ),
               ),
@@ -138,6 +148,7 @@ class _ScheduleState extends State<Schedule> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Title",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13),
                 ),
               ),

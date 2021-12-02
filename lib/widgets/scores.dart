@@ -37,47 +37,52 @@ class _ScheduleState extends State<Scores> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Container(
-          width: 60,
+          width: 80,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.date ?? '',
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 11),
           ),
         ),
         Container(
-          width: 45,
+          width: 60,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.team1 ?? '',
+            textAlign: TextAlign.center,
             style: docs.scoreTeam1 > docs.scoreTeam2
                 ? const TextStyle(fontSize: 12, color: Colors.red)
                 : const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
         ),
         Container(
-          width: 20,
+          width: 40,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.scoreTeam1.toString(),
+            textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
         ),
         Container(
-          width: 45,
+          width: 60,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.team2 ?? '',
-            style: docs.scoreTeam2 > docs.scoreTeam2
+            textAlign: TextAlign.center,
+            style: docs.scoreTeam2 > docs.scoreTeam1
                 ? const TextStyle(fontSize: 12, color: Colors.red)
                 : const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
         ),
         Container(
-          width: 20,
+          width: 40,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.scoreTeam2.toString(),
+            textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
@@ -93,6 +98,7 @@ class _ScheduleState extends State<Scores> {
           padding: const EdgeInsets.all(20.0),
           child: Text(
             "Scores for $name",
+            textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 22,
@@ -106,19 +112,21 @@ class _ScheduleState extends State<Scores> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                width: 60,
+                width: 80,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Date",
-                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11),
                 ),
               ),
               Container(
-                width: 45,
+                width: 60,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Team 1",
-                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11),
                 ),
               ),
               Container(
@@ -126,15 +134,17 @@ class _ScheduleState extends State<Scores> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Score",
-                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11),
                 ),
               ),
               Container(
-                width: 45,
+                width: 60,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Team 2",
-                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11),
                 ),
               ),
               Container(
@@ -142,7 +152,8 @@ class _ScheduleState extends State<Scores> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Score",
-                  style: TextStyle(fontSize: 10),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11),
                 ),
               ),
             ],

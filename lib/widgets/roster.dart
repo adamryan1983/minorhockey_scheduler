@@ -11,14 +11,14 @@ class Roster extends StatefulWidget {
       : super(key: key);
 
   @override
-    // ignore: no_logic_in_create_state
-  _RosterState createState() => _RosterState(division,name);
+  // ignore: no_logic_in_create_state
+  _RosterState createState() => _RosterState(division, name);
 }
 
 class _RosterState extends State<Roster> {
-    late String name;
-    late String division;
-    _RosterState(this.division,this.name);
+  late String name;
+  late String division;
+  _RosterState(this.division, this.name);
   late Future<List<RosterModel>> _futurePlayers;
 
   @override
@@ -37,10 +37,11 @@ class _RosterState extends State<Roster> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Container(
-          width: 80,
+          width: 90,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.name ?? '',
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 12),
           ),
         ),
@@ -49,14 +50,16 @@ class _RosterState extends State<Roster> {
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.dob ?? '',
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 12),
           ),
         ),
         Container(
-          width: 70,
+          width: 60,
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.jersey.toString(),
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 12),
           ),
         ),
@@ -65,6 +68,7 @@ class _RosterState extends State<Roster> {
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.status ?? '',
+            textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
@@ -80,6 +84,7 @@ class _RosterState extends State<Roster> {
           padding: const EdgeInsets.all(20.0),
           child: Text(
             "Roster for $name",
+            textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 22,
@@ -93,10 +98,11 @@ class _RosterState extends State<Roster> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                width: 80,
+                width: 90,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Name",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15),
                 ),
               ),
@@ -105,6 +111,7 @@ class _RosterState extends State<Roster> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "DOB",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15),
                 ),
               ),
@@ -113,6 +120,7 @@ class _RosterState extends State<Roster> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Number",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15),
                 ),
               ),
@@ -121,6 +129,7 @@ class _RosterState extends State<Roster> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Status",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15),
                 ),
               ),
