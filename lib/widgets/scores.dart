@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/constants/colors.dart';
-import 'package:minorhockey_scheduler/models/schedule_model.dart';
+import 'package:minorhockey_scheduler/models/score_model.dart';
 import 'package:minorhockey_scheduler/services/roster_http.dart';
 
-class Schedule extends StatefulWidget {
+class Scores extends StatefulWidget {
   final String division;
   final String name;
-  const Schedule({Key? key, required this.name, required this.division})
+  const Scores({Key? key, required this.name, required this.division})
       : super(key: key);
 
   @override
@@ -15,16 +15,16 @@ class Schedule extends StatefulWidget {
   _ScheduleState createState() => _ScheduleState(division, name);
 }
 
-class _ScheduleState extends State<Schedule> {
+class _ScheduleState extends State<Scores> {
   late String name;
   late String division;
   _ScheduleState(this.division, this.name);
-  late Future<List<ScheduleModel>> _futureGames;
+  late Future<List<ScoreModel>> _futureScores;
 
   @override
   void initState() {
     super.initState();
-    _futureGames = RosterRepository().getGames(division);
+    _futureScores = RosterRepository().getScores(division);
   }
 
   @override
@@ -41,39 +41,43 @@ class _ScheduleState extends State<Schedule> {
           padding: const EdgeInsets.all(4.0),
           child: Text(
             docs.date ?? '',
-            style: const TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 11),
           ),
         ),
         Container(
           width: 45,
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            docs.time ?? '',
-            style: const TextStyle(fontSize: 12),
+            docs.team1 ?? '',
+            style: docs.scoreTeam1 > docs.scoreTeam2
+                ? const TextStyle(fontSize: 12, color: Colors.red)
+                : const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
         ),
         Container(
-          width: 70,
+          width: 20,
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            docs.location ?? '',
-            style: const TextStyle(fontSize: 12),
-          ),
-        ),
-        Container(
-          width: 75,
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            docs.opponent ?? '',
+            docs.scoreTeam1.toString(),
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
         ),
         Container(
-          width: 70,
+          width: 45,
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            docs.title ?? '',
+            docs.team2 ?? '',
+            style: docs.scoreTeam2 > docs.scoreTeam2
+                ? const TextStyle(fontSize: 12, color: Colors.red)
+                : const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
+          ),
+        ),
+        Container(
+          width: 20,
+          padding: const EdgeInsets.all(4.0),
+          child: Text(
+            docs.scoreTeam2.toString(),
             style:
                 const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
           ),
@@ -88,7 +92,7 @@ class _ScheduleState extends State<Schedule> {
       Container(
           padding: const EdgeInsets.all(20.0),
           child: Text(
-            "Schedule for $name",
+            "Scores for $name",
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 22,
@@ -96,7 +100,7 @@ class _ScheduleState extends State<Schedule> {
             ),
           )),
       Container(
-          height: 40.0,
+          height: 60.0,
           color: AppColors.fifthColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,46 +110,46 @@ class _ScheduleState extends State<Schedule> {
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
                   "Date",
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
-                width: 50,
+                width: 45,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
-                  "Time",
-                  style: TextStyle(fontSize: 13),
+                  "Team 1",
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
-                width: 70,
+                width: 40,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
-                  "Location",
-                  style: TextStyle(fontSize: 13),
+                  "Score",
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
-                width: 85,
+                width: 45,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
-                  "Opponent",
-                  style: TextStyle(fontSize: 13),
+                  "Team 2",
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
-                width: 80,
+                width: 40,
                 padding: const EdgeInsets.all(4.0),
                 child: const Text(
-                  "Title",
-                  style: TextStyle(fontSize: 13),
+                  "Score",
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
             ],
           )),
       Expanded(
-        child: FutureBuilder<List<ScheduleModel>>(
-          future: _futureGames,
+        child: FutureBuilder<List<ScoreModel>>(
+          future: _futureScores,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final items = snapshot.data!;

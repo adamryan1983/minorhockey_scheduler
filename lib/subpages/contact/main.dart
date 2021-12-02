@@ -29,58 +29,55 @@ class ContactList extends StatelessWidget {
         Column(
           children: const [
             Center(
-            child: Text('Bell Island Minor Hockey Association',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-            
+              child: Text('Bell Island Minor Hockey Association',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
             ),
-            Center(child:Text('Contact Information',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-            )],
+            Center(
+              child: Text('Contact Information',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+            )
+          ],
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-              Column(
-                children: const [
-                  Text('Website:',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.w600)),
-                  Text('https://bimha.org',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.w500)),
-                ],
-              ),
-              ],
-            ),
             Column(
               children: const [
-                Text('Email:',
+                Text('Website:',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('bimha@gmail.com',
+                Text('https://bimha.org',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
               ],
             ),
-            Column(
-              children: const [
-                Text('Facebook:',
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('https://facebook.com/bimha',
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-              ],
-            ),
+          ],
+        ),
+        Column(
+          children: const [
+            Text('Email:',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+            Text('bellislandminorhockey@gmail.com',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+          ],
+        ),
+        Column(
+          children: const [
+            Text('Facebook:',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+            Text('https://facebook.com/bimha',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+          ],
+        ),
       ],
     );
   }

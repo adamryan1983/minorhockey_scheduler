@@ -2,30 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
 import 'package:minorhockey_scheduler/widgets/roster.dart';
 import 'package:minorhockey_scheduler/widgets/schedule.dart';
+import 'package:minorhockey_scheduler/widgets/scores.dart';
 
 class U13Page extends StatefulWidget {
   const U13Page({Key? key}) : super(key: key);
   static const String routeName = '/u13';
-  // static const String name = 'U13';
-  // static const String division = 'u13';
 
   @override
   _U13PageState createState() => _U13PageState();
 }
 
-class _U13PageState extends State<U13Page>
-    with TickerProviderStateMixin {
+class _U13PageState extends State<U13Page> with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 
-      late TabController controller;
+  late TabController controller;
 
   @override
   void initState() {
-    controller = TabController(length: 2, vsync: this, initialIndex: 0);
+    controller = TabController(length: 3, vsync: this, initialIndex: 0);
     super.initState();
   }
-    @override
+
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -33,7 +32,6 @@ class _U13PageState extends State<U13Page>
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -56,6 +54,7 @@ class _U13PageState extends State<U13Page>
           tabs: const <Tab>[
             Tab(text: 'Roster'),
             Tab(text: 'Schedule'),
+            Tab(text: 'Scores')
           ],
         ),
       ),
@@ -64,7 +63,8 @@ class _U13PageState extends State<U13Page>
         controller: controller,
         children: const <Widget>[
           Roster(name: 'Under 13', division: 'u13'),
-          Schedule(name: 'Under 13', division: 'u13')
+          Schedule(name: 'Under 13', division: 'u13'),
+          Scores(name: 'Under 13', division: 'u13')
         ],
       ),
     );

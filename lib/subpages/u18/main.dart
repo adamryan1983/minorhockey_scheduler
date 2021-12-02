@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
 import 'package:minorhockey_scheduler/widgets/roster.dart';
 import 'package:minorhockey_scheduler/widgets/schedule.dart';
+import 'package:minorhockey_scheduler/widgets/scores.dart';
 
 class U18Page extends StatefulWidget {
   const U18Page({Key? key}) : super(key: key);
-    static const String routeName = '/u18';
+  static const String routeName = '/u18';
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<U18Page>
-    with TickerProviderStateMixin {
+class _HomeScreenState extends State<U18Page> with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<U18Page>
 
   @override
   Widget build(BuildContext context) {
-    TabController controller = TabController(length: 2, vsync: this);
+    TabController controller = TabController(length: 3, vsync: this);
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -45,6 +45,7 @@ class _HomeScreenState extends State<U18Page>
           tabs: const <Tab>[
             Tab(text: 'Roster'),
             Tab(text: 'Schedule'),
+            Tab(text: 'Scores')
           ],
         ),
       ),
@@ -52,8 +53,9 @@ class _HomeScreenState extends State<U18Page>
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-        Roster(name: 'Under 18', division: 'u18'),
-        Schedule(name: 'Under 18', division: 'u18')
+          Roster(name: 'Under 18', division: 'u18'),
+          Schedule(name: 'Under 18', division: 'u18'),
+          Scores(name: 'Under 18', division: 'u18')
         ],
       ),
     );

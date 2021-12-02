@@ -78,6 +78,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'BIMHA 2021-22 Season Database',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

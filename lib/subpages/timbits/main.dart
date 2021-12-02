@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/widgets/drawer.dart';
 import 'package:minorhockey_scheduler/widgets/roster.dart';
 import 'package:minorhockey_scheduler/widgets/schedule.dart';
+import 'package:minorhockey_scheduler/widgets/scores.dart';
 import 'package:flutter/cupertino.dart';
 
 class TimbitsPage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _TimbitsPageState extends State<TimbitsPage>
 
   @override
   void initState() {
-    controller = TabController(length: 2, vsync: this, initialIndex: 0);
+    controller = TabController(length: 3, vsync: this, initialIndex: 0);
     super.initState();
   }
 
@@ -57,6 +58,7 @@ class _TimbitsPageState extends State<TimbitsPage>
           tabs: const <Tab>[
             Tab(text: 'Roster'),
             Tab(text: 'Schedule'),
+            Tab(text: 'Scores'),
           ],
         ),
       ),
@@ -65,7 +67,8 @@ class _TimbitsPageState extends State<TimbitsPage>
         controller: controller,
         children: const <Widget>[
           Roster(name: 'Timbits', division: 'timbits'),
-          Schedule(name: 'Timbits', division: 'timbits')
+          Schedule(name: 'Timbits', division: 'timbits'),
+          Scores(name: 'Timbits', division: 'timbits')
         ],
       ),
     );

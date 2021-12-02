@@ -26,14 +26,14 @@ class ContactList extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Column (
+        Column(
           children: const [
-          Text('Bell Island Minor Hockey Association',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-          Text('Board of Directors',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+            Text('Bell Island Minor Hockey Association',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+            Text('Board of Directors',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
           ],
         ),
         Column(
@@ -87,7 +87,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('Allison Normore',
+                Text('Allison Noseworthy',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
