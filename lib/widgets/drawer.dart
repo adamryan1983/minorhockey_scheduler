@@ -51,10 +51,10 @@ class AppDrawer extends StatelessWidget {
               onTap: () =>
                   Navigator.pushReplacementNamed(context, Routes.about)),
           _createDrawerItem(
-              icon: Icons.health_and_safety,
-              text: 'Covid Policy',
+              icon: Icons.shopping_cart,
+              text: 'Miners Merch',
               onTap: () =>
-                  Navigator.pushReplacementNamed(context, Routes.covid)),
+                  Navigator.pushReplacementNamed(context, Routes.store)),
           const Divider(),
           _createDrawerItem(
               icon: Icons.home,

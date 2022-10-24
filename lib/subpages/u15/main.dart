@@ -9,10 +9,10 @@ class U15Page extends StatefulWidget {
   static const String routeName = '/u15';
 
   @override
-  _U15PageState createState() => _U15PageState();
+  U15PageState createState() => U15PageState();
 }
 
-class _U15PageState extends State<U15Page> with TickerProviderStateMixin {
+class U15PageState extends State<U15Page> with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 

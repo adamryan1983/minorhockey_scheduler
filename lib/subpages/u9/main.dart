@@ -11,10 +11,10 @@ class U9Page extends StatefulWidget {
   // static const String division = 'u9';
 
   @override
-  _U9PageState createState() => _U9PageState();
+  U9PageState createState() => U9PageState();
 }
 
-class _U9PageState extends State<U9Page> with TickerProviderStateMixin {
+class U9PageState extends State<U9Page> with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 

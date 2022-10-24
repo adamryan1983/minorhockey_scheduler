@@ -8,10 +8,10 @@ class U18Page extends StatefulWidget {
   const U18Page({Key? key}) : super(key: key);
   static const String routeName = '/u18';
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<U18Page> with TickerProviderStateMixin {
+class HomeScreenState extends State<U18Page> with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 

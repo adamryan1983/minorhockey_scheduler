@@ -9,10 +9,10 @@ class U11Page extends StatefulWidget {
   static const String routeName = '/u11';
 
   @override
-  _U11PageState createState() => _U11PageState();
+  U11PageState createState() => U11PageState();
 }
 
-class _U11PageState extends State<U11Page> with TickerProviderStateMixin {
+class U11PageState extends State<U11Page> with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 

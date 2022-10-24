@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/constants/colors.dart';
 import 'package:minorhockey_scheduler/models/roster_model.dart';
@@ -12,13 +11,13 @@ class Roster extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  _RosterState createState() => _RosterState(division, name);
+  RosterState createState() => RosterState(division, name);
 }
 
-class _RosterState extends State<Roster> {
+class RosterState extends State<Roster> {
   late String name;
   late String division;
-  _RosterState(this.division, this.name);
+  RosterState(this.division, this.name);
   late Future<List<RosterModel>> _futurePlayers;
 
   @override
@@ -32,51 +31,6 @@ class _RosterState extends State<Roster> {
     super.dispose();
   }
 
-  Widget _buildListItem(BuildContext context, docs) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Container(
-          width: 90,
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            docs.name ?? '',
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12),
-          ),
-        ),
-        Container(
-          width: 70,
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            docs.dob ?? '',
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12),
-          ),
-        ),
-        Container(
-          width: 60,
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            docs.jersey.toString(),
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12),
-          ),
-        ),
-        Container(
-          width: 80,
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            docs.status ?? '',
-            textAlign: TextAlign.center,
-            style:
-                const TextStyle(fontSize: 12, color: AppColors.mainTextBlack),
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
@@ -87,54 +41,90 @@ class _RosterState extends State<Roster> {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
-              fontSize: 22,
+              fontSize: 16,
               color: Colors.amber,
             ),
-          )),
-      Container(
+          ),),
+          Container(
           height: 40.0,
           color: AppColors.fifthColor,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
             children: <Widget>[
               Container(
-                width: 90,
-                padding: const EdgeInsets.all(4.0),
+                width: 70,
+                padding: const EdgeInsets.all(2.0),
                 child: const Text(
                   "Name",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
                 width: 70,
-                padding: const EdgeInsets.all(4.0),
+                padding: const EdgeInsets.all(2.0),
                 child: const Text(
                   "DOB",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
-                width: 70,
-                padding: const EdgeInsets.all(4.0),
+                width: 60,
+                padding: const EdgeInsets.all(2.0),
                 child: const Text(
                   "Number",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Container(
-                width: 80,
-                padding: const EdgeInsets.all(4.0),
+                width: 60,
+                padding:const EdgeInsets.all(2.0),
                 child: const Text(
                   "Status",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 10),
+                ),
+              ),
+              Container(
+                width: 40,
+                padding: const EdgeInsets.all(2.0),
+                child: const Text(
+                  "Goals",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10),
+                ),
+              ),
+              Container(
+                width: 40,
+                padding: const EdgeInsets.all(2.0),
+                child: const Text(
+                  "Assists",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10),
+                ),
+              ),
+              Container(
+                width: 40,
+                padding: const EdgeInsets.all(2.0),
+                child: const Text(
+                  "Points",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10),
+                ),
+              ),
+              Container(
+                width: 40,
+                padding: const EdgeInsets.all(2.0),
+                child: const Text(
+                  "PIM",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
             ],
-          )),
+          ),),
       Expanded(
         child: FutureBuilder<List<RosterModel>>(
           future: _futurePlayers,
@@ -147,7 +137,7 @@ class _RosterState extends State<Roster> {
                       _buildListItem(context, items[index]));
             } else if (snapshot.hasError) {
               // Show failure error message.
-              return const Center(child: Text('fail'));
+              return const Center(child: Text('error, try again'));
             }
             // Show a loading spinner.
             return const Center(child: CircularProgressIndicator());
@@ -156,4 +146,98 @@ class _RosterState extends State<Roster> {
       )
     ]);
   }
+
+  
+  Widget _buildListItem(BuildContext context, docs) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Container(
+          width: 70,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.name ?? '',
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 8),
+          ),
+        ),
+        Container(
+          width: 60,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.dob ?? '',
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 8),
+          ),
+        ),
+        Container(
+          width: 50,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.jersey.toString(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 8),
+          ),
+        ),
+        Container(
+          width: 60,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.status ?? '',
+            textAlign: TextAlign.center,
+            style:
+                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          ),
+        ),
+        Container(
+          width: 40,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.goals.toString() ?? '0',
+            textAlign: TextAlign.center,
+            style:
+                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          ),
+        ),
+        Container(
+          width: 40,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.assists.toString() ?? '0',
+            textAlign: TextAlign.center,
+            style:
+                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          ),
+        ),
+        Container(
+          width: 40,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            (docs.goals + docs.assists).toString(),
+            textAlign: TextAlign.center,
+            style:
+                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          ),
+        ),
+        Container(
+          width: 30,
+          height: 30,
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            docs.pim.toString() ?? '0',
+            textAlign: TextAlign.center,
+            style:
+                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          ),
+        ),
+      ],
+    );
+  }
+
 }

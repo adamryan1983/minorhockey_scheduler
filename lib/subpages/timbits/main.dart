@@ -3,7 +3,6 @@ import 'package:minorhockey_scheduler/widgets/drawer.dart';
 import 'package:minorhockey_scheduler/widgets/roster.dart';
 import 'package:minorhockey_scheduler/widgets/schedule.dart';
 import 'package:minorhockey_scheduler/widgets/scores.dart';
-import 'package:flutter/cupertino.dart';
 
 class TimbitsPage extends StatefulWidget {
   const TimbitsPage({Key? key}) : super(key: key);
@@ -12,10 +11,10 @@ class TimbitsPage extends StatefulWidget {
   // static const String division = 'timbits';
 
   @override
-  _TimbitsPageState createState() => _TimbitsPageState();
+  TimbitsPageState createState() => TimbitsPageState();
 }
 
-class _TimbitsPageState extends State<TimbitsPage>
+class TimbitsPageState extends State<TimbitsPage>
     with TickerProviderStateMixin {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();

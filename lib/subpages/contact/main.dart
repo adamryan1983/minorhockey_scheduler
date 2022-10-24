@@ -50,7 +50,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('https://bimha.org',
+                Text('https://bimhahockey.ca',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
@@ -73,7 +73,7 @@ class ContactList extends StatelessWidget {
             Text('Facebook:',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-            Text('https://facebook.com/bimha',
+            Text('https://www.facebook.com/bellislandminorhockey',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           ],

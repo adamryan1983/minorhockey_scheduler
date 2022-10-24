@@ -46,7 +46,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                Text('Gary McLaughlin',
+                Text('Kerri-Lynn Kent',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
@@ -61,7 +61,7 @@ class ContactList extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w600)),
-                    Text('Jeanette Ricketts',
+                    Text('vacant',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w500)),
@@ -73,7 +73,7 @@ class ContactList extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w600)),
-                    Text('Jennifer Power',
+                    Text('Amanda Murray',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w500)),
@@ -87,7 +87,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('Allison Noseworthy',
+                Text('Lori Pynn',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
@@ -111,7 +111,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('Dave Banko',
+                Text('vacant',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
@@ -123,7 +123,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('Amanda Kavanagh',
+                Text('Adam Ryan',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
@@ -135,7 +135,7 @@ class ContactList extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                Text('Adam Ryan',
+                Text('Shelly Rouzes',
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),

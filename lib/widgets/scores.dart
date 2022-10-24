@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minorhockey_scheduler/constants/colors.dart';
 import 'package:minorhockey_scheduler/models/score_model.dart';
@@ -12,13 +11,13 @@ class Scores extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  _ScheduleState createState() => _ScheduleState(division, name);
+  ScheduleState createState() => ScheduleState(division, name);
 }
 
-class _ScheduleState extends State<Scores> {
+class ScheduleState extends State<Scores> {
   late String name;
   late String division;
-  _ScheduleState(this.division, this.name);
+  ScheduleState(this.division, this.name);
   late Future<List<ScoreModel>> _futureScores;
 
   @override
