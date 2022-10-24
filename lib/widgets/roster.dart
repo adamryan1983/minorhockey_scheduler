@@ -197,7 +197,7 @@ class RosterState extends State<Roster> {
           height: 30,
           padding: const EdgeInsets.all(2.0),
           child: Text(
-            docs.goals.toString() ?? '0',
+            docs.goals.toString(),
             textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
@@ -208,7 +208,7 @@ class RosterState extends State<Roster> {
           height: 30,
           padding: const EdgeInsets.all(2.0),
           child: Text(
-            docs.assists.toString() ?? '0',
+            docs.assists.toString(),
             textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
@@ -230,7 +230,7 @@ class RosterState extends State<Roster> {
           height: 30,
           padding: const EdgeInsets.all(2.0),
           child: Text(
-            docs.pim.toString() ?? '0',
+            docs.pim.toString(),
             textAlign: TextAlign.center,
             style:
                 const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
