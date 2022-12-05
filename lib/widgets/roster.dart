@@ -34,17 +34,20 @@ class RosterState extends State<Roster> {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      Container(
-          padding: const EdgeInsets.all(20.0),
-          child: Text(
-            "Roster for $name",
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-              color: Colors.amber,
-            ),
-          ),),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Container(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              "Roster for $name",
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+                color: Colors.amber,
+              ),
+            ),),
+      ),
           Container(
           height: 40.0,
           color: AppColors.fifthColor,
@@ -149,94 +152,98 @@ class RosterState extends State<Roster> {
 
   
   Widget _buildListItem(BuildContext context, docs) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Container(
-          width: 70,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.name ?? '',
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 8),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Container(
+            width: 70,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.name ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 8),
+            ),
           ),
-        ),
-        Container(
-          width: 60,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.dob ?? '',
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 8),
+          Container(
+            width: 60,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.dob ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 8),
+            ),
           ),
-        ),
-        Container(
-          width: 50,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.jersey.toString(),
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 8),
+          Container(
+            width: 50,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.jersey.toString(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 8),
+            ),
           ),
-        ),
-        Container(
-          width: 60,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.status ?? '',
-            textAlign: TextAlign.center,
-            style:
-                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          Container(
+            width: 60,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.status ?? '',
+              textAlign: TextAlign.center,
+              style:
+                  const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+            ),
           ),
-        ),
-        Container(
-          width: 40,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.goals.toString(),
-            textAlign: TextAlign.center,
-            style:
-                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          Container(
+            width: 40,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.goals.toString(),
+              textAlign: TextAlign.center,
+              style:
+                  const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+            ),
           ),
-        ),
-        Container(
-          width: 40,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.assists.toString(),
-            textAlign: TextAlign.center,
-            style:
-                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          Container(
+            width: 40,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.assists.toString(),
+              textAlign: TextAlign.center,
+              style:
+                  const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+            ),
           ),
-        ),
-        Container(
-          width: 40,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            (docs.goals + docs.assists).toString(),
-            textAlign: TextAlign.center,
-            style:
-                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          Container(
+            width: 40,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              (docs.goals + docs.assists).toString(),
+              textAlign: TextAlign.center,
+              style:
+                  const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+            ),
           ),
-        ),
-        Container(
-          width: 30,
-          height: 30,
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            docs.pim.toString(),
-            textAlign: TextAlign.center,
-            style:
-                const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+          Container(
+            width: 30,
+            height: 30,
+            padding: const EdgeInsets.all(2.0),
+            child: Text(
+              docs.pim.toString(),
+              textAlign: TextAlign.center,
+              style:
+                  const TextStyle(fontSize: 8, color: AppColors.mainTextBlack),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

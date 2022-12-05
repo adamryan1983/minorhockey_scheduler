@@ -49,7 +49,7 @@ class ScheduleState extends State<Schedule> {
           width: 50,
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            docs.time ?? '',
+            docs.time ?? 'N/A',
             style: const TextStyle(fontSize: 12),
             textAlign: TextAlign.center,
           ),

@@ -95,7 +95,7 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.all(15),
                 child: const Text(
                   'Welcome to the BIMHA Info Hub',
                   style: TextStyle(
@@ -146,7 +146,7 @@ class MyApp extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
 
                 child: const Text(
-                  "V 1.1 - created by Adam Ryan",
+                  "V 1.2 - created by Adam Ryan",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.black,
